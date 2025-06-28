@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifePulse - Healthcare Monitoring</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ffffff, #f8f9fa);
+            color: black;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: lightsalmon;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .logo span {
+            margin-left: 10px;
+            color: red;
+        }
+        .red-cross {
+            color: red;
+            font-size: 30px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+        .carousel {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            background: lightslategray;
+            margin-top: 0px;
+            overflow: hidden;
+            position: relative;
+        }
+        .slide {
+            opacity: 0;
+            position: absolute;
+            transition: opacity 1s ease-in-out;
+        }
+        .active {
+            opacity: 1;
+        }
+        .search-container, .login-container {
+          
+            background: lightseagreen;
+            border-radius: 8px;
+            display: none;
+        }
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #patient-data {
+            margin-top: 20px;
+            padding: 15px;
+            background: lightseagreen;            
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">❤️<span class="red-cross">✚</span> LifePulse</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" onclick="toggleSearch()">🔍 Search</a></li>
+                <li><a href="#" onclick="toggleLogin()">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <div class="carousel" id="carousel">
+            <div class="slide active">💓 Real-Time Patient Monitoring</div>
+            <div class="slide">🔍 Smart Search for Instant Access</div>
+            <div class="slide">🚑 Critical Alerts & Life-Saving Insights</div>
+        </div>
+    </section>
+    
+    <div class="search-container" id="search-container">
+        <h2>Search Patient Data</h2>
+        <input type="text" id="patientId" placeholder="Enter Patient ID">
+        <button onclick="fetchData()">Search</button>
+    </div>
+    
+    <div class="login-container" id="login-container">
+        <h2>Login</h2>
+        <input type="text" id="email" placeholder="Email ID">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+    
+    <div id="patient-data"></div>
+    
+    <script>
+        function toggleSearch() {
+            let searchBox = document.getElementById("search-container");
+            let loginBox = document.getElementById("login-container");
+            searchBox.style.display = searchBox.style.display === "none" ? "block" : "none";
+            loginBox.style.display = "none";
+        }
+        
+        function toggleLogin() {
+            let loginBox = document.getElementById("login-container");
+            let searchBox = document.getElementById("search-container");
+            loginBox.style.display = loginBox.style.display === "none" ? "block" : "none";
+            searchBox.style.display = "none";
+        }
+        
+        function fetchData() {
+            let patientId = document.getElementById("patientId").value;
+            let channelId = "2855451";  // Replace with your actual ThingSpeak channel ID
+            let apiKey = "B9XF800M032W6GTN";  // Replace with your actual ThingSpeak read API key
+            let url = `https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${apiKey}&results=1`;
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.feeds.length > 0) {
+                        let feed = data.feeds[0];
+                        document.getElementById("patient-data").innerHTML = `
+                            <h3>Patient ID: ${patientId}</h3>
+                            <p>Temperature: ${feed.field1} °C</p>
+                            <p>Humidity: ${feed.field2} %</p>
+                            <p>ECG: ${feed.field3}</p>
+                            <p>Pulse rate: ${feed.field4} BPM</p>
+                            <p>Last Updated: ${feed.created_at}</p>
+                        `;
+                    } else {
+                        document.getElementById("patient-data").innerHTML = "No data found.";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                    document.getElementById("patient-data").innerHTML = "Error retrieving data.";
+                });
+        }
+        
+        function login() {
+            alert("Login functionality not implemented yet.");
+        }
+        
+        let slides = document.querySelectorAll(".slide");
+        let currentSlide = 0;
+
+        function showSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove("active");
+                if (index === currentSlide) {
+                    slide.classList.add("active");
+                }
+            });
+            currentSlide = (currentSlide + 1) % slides.length;
+        }
+
+        setInterval(showSlide, 3000); // Switch slides every 3 seconds
+    </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_aaf9d64a082a2302fafaaac8355d987d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_aaf9d64a082a2302fafaaac8355d987d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_aaf9d64a082a2302fafaaac8355d987d = L.map(
+                "map_aaf9d64a082a2302fafaaac8355d987d",
+                {
+                    center: [13.1582, 80.3018],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 14,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f154cb5ee2d95ef2e327837838fae622 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f154cb5ee2d95ef2e327837838fae622.addTo(map_aaf9d64a082a2302fafaaac8355d987d);
+        
+    
+            var marker_ee10676f7ea79dde8daeca12243ba07c = L.marker(
+                [13.1582, 80.3018],
+                {
+}
+            ).addTo(map_aaf9d64a082a2302fafaaac8355d987d);
+        
+    
+            var icon_f3624602a94ca8ec7b6bd031366e0c08 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_ee10676f7ea79dde8daeca12243ba07c.setIcon(icon_f3624602a94ca8ec7b6bd031366e0c08);
+        
+    
+        var popup_792f4e6b539dca3243e874fcfeba56f0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d291cc221eb91ad5718572db278c9838 = $(`<div id="html_d291cc221eb91ad5718572db278c9838" style="width: 100.0%; height: 100.0%;">🚑 Ambulance</div>`)[0];
+                popup_792f4e6b539dca3243e874fcfeba56f0.setContent(html_d291cc221eb91ad5718572db278c9838);
+            
+        
+
+        marker_ee10676f7ea79dde8daeca12243ba07c.bindPopup(popup_792f4e6b539dca3243e874fcfeba56f0)
+        ;
+
+        
+    
+    
+            var marker_ee48ea10c8cc8b66e46e90e11369bfc1 = L.marker(
+                [13.165217499696858, 80.30329669999999],
+                {
+}
+            ).addTo(map_aaf9d64a082a2302fafaaac8355d987d);
+        
+    
+            var icon_8857d4558fbaf61179a14e987fd79c24 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_ee48ea10c8cc8b66e46e90e11369bfc1.setIcon(icon_8857d4558fbaf61179a14e987fd79c24);
+        
+    
+        var popup_865c8752b56fa710cdff83ed213747f6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ef906b4843fbbd54faa8341d809047ef = $(`<div id="html_ef906b4843fbbd54faa8341d809047ef" style="width: 100.0%; height: 100.0%;">🏥 Sugam Hospital, Tiruvallur</div>`)[0];
+                popup_865c8752b56fa710cdff83ed213747f6.setContent(html_ef906b4843fbbd54faa8341d809047ef);
+            
+        
+
+        marker_ee48ea10c8cc8b66e46e90e11369bfc1.bindPopup(popup_865c8752b56fa710cdff83ed213747f6)
+        ;
+
+        
+    
+    
+            var poly_line_a5a160fde4d5ed5dfe52eabd10ccabc9 = L.polyline(
+                [[13.158205, 80.301785], [13.158928, 80.302052], [13.159396, 80.302162], [13.160741, 80.302496], [13.161673, 80.30282], [13.162227, 80.30305], [13.162736, 80.303254], [13.163112, 80.30333], [13.163689, 80.303371], [13.164435, 80.303425], [13.164894, 80.303458], [13.165165, 80.303495], [13.165171, 80.303496]],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "black", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_aaf9d64a082a2302fafaaac8355d987d);
+        
+    
+        var popup_c9a14fe85ffa6b818e0926bbdf4a5465 = L.popup({
+  "maxWidth": 450,
+});
+
+        
+            
+                var html_b35fcf811b19b2e49c87723058e74dea = $(`<div id="html_b35fcf811b19b2e49c87723058e74dea" style="width: 100.0%; height: 100.0%;">Step 1: Head north on Chennai - Ennore Road, SH114&lt;br&gt;Step 2: Arrive at Chennai - Ennore Road, SH114, on the left</div>`)[0];
+                popup_c9a14fe85ffa6b818e0926bbdf4a5465.setContent(html_b35fcf811b19b2e49c87723058e74dea);
+            
+        
+
+        poly_line_a5a160fde4d5ed5dfe52eabd10ccabc9.bindPopup(popup_c9a14fe85ffa6b818e0926bbdf4a5465)
+        ;
+
+        
+    
+</script>
+</html>
